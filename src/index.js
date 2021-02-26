@@ -8,7 +8,7 @@ import './styles.css'
 
 const tempObject = new THREE.Object3D()
 const tempColor = new THREE.Color()
-const colors = new Array(1000).fill().map(() => niceColors[17][Math.floor(Math.random() * 5)])
+const colors = new Array(1000).fill().map(() => niceColors[2][Math.floor(Math.random() * 5)])
 
 function Boxes() {
   const [hovered, set] = useState()
@@ -18,18 +18,25 @@ function Boxes() {
   const previous = useRef()
   useEffect(() => void (previous.current = hovered), [hovered])
 
+  const cubeWidth = 10;
+
   useFrame(state => {
     const time = state.clock.getElapsedTime()
     ref.current.rotation.x = Math.sin(time / 4)
-    ref.current.rotation.y = Math.sin(time / 2)
+    ref.current.rotation.y = Math.sin(time / 2);
     let i = 0
-    for (let x = 0; x < 10; x++)
-      for (let y = 0; y < 10; y++)
-        for (let z = 0; z < 10; z++) {
+    for (let x = 0; x < cubeWidth; x++)
+      for (let y = 0; y < cubeWidth; y++)
+        for (let z = 0; z < cubeWidth; z++) {
           const id = i++
-          tempObject.position.set(5 - x, 5 - y, 5 - z)
-          tempObject.rotation.y = Math.sin(x / 4 + time) + Math.sin(y / 4 + time) + Math.sin(z / 4 + time)
-          tempObject.rotation.z = tempObject.rotation.y * 2
+          tempObject.position.set(5-x, 5-y, 5-z)
+          //tempObject.position.set(5 - x, 5 - y, 5 - z)
+          //tempObject.rotation.x = // + Math.sin(y / 4 + time) + Math.sin(z / 4 + time)
+          tempObject.rotation.x = Math.sin(x / 4 + time);// + Math.sin(y / 4 + time) + Math.sin(z / 4 + time)
+          tempObject.rotation.y = Math.sin(y / 4 + time);
+          tempObject.rotation.z = Math.sin(z / 4 + time);
+          //tempObject.rotation.y = Math.sin(x / 4 + time) + Math.sin(y / 4 + time) + Math.sin(z / 4 + time)
+          //tempObject.rotation.z = tempObject.rotation.y * 2
           if (hovered !== previous.current) {
             tempColor.set(id === hovered ? 'white' : colors[id]).toArray(colorArray, id * 3)
             ref.current.geometry.attributes.color.needsUpdate = true
@@ -56,7 +63,7 @@ ReactDOM.render(
   <Canvas
     gl={{ antialias: false, alpha: false }}
     camera={{ position: [0, 0, 15], near: 5, far: 20 }}
-    onCreated={({ gl }) => gl.setClearColor('lightpink')}>
+    onCreated={({ gl }) => gl.setClearColor('black')}>
     <ambientLight />
     <pointLight position={[150, 150, 150]} intensity={0.55} />
     <Boxes />
