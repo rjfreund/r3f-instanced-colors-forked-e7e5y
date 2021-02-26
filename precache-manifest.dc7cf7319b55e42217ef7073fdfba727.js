@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "58a4ed036db59d7a58aa38bb722698ac",
+    "revision": "46c6cc6d3551619b9e3b313bae107b26",
     "url": "/r3f-instanced-colors-forked-e7e5y/index.html"
   },
   {
-    "revision": "6088256a13f4af8f6ed6",
-    "url": "/r3f-instanced-colors-forked-e7e5y/static/css/main.dcbb6d31.chunk.css"
+    "revision": "19c269e62f893b5aff9e",
+    "url": "/r3f-instanced-colors-forked-e7e5y/static/css/main.f822f2bb.chunk.css"
   },
   {
     "revision": "e142e37f06409b674807",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/r3f-instanced-colors-forked-e7e5y/static/js/2.cbd1d289.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6088256a13f4af8f6ed6",
+    "revision": "19c269e62f893b5aff9e",
     "url": "/r3f-instanced-colors-forked-e7e5y/static/js/main.d9200aca.chunk.js"
   },
   {
